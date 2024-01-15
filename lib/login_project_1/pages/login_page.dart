@@ -3,15 +3,29 @@ import 'package:test_app/login_project_1/components/my_button.dart';
 import 'package:test_app/login_project_1/components/my_textfield.dart';
 import 'package:test_app/login_project_1/components/square_tile.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   // text editing controllers
   final usernameController = TextEditingController();
+
   final passwordController = TextEditingController();
 
   // sing user in method
   void signUserIn() {}
+  bool _isObsecured = true;
+
+  void onObsecure() {
+    setState(() {
+      _isObsecured = !_isObsecured;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +71,11 @@ class LoginPage extends StatelessWidget {
             MyTextField(
               controller: passwordController,
               hintText: 'enter password',
-              obscureText: true,
+              obscureText: _isObsecured,
+              suffix: IconButton(
+                  onPressed: onObsecure,
+                  icon: Icon(
+                      _isObsecured ? Icons.visibility_off : Icons.visibility)),
             ),
 
             const SizedBox(height: 10),
@@ -67,10 +85,14 @@ class LoginPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    'Forgot Password?',
-                    style: TextStyle(color: Colors.blue[600]),
-                  ),
+                  TextButton(
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Comming soon...!'))),
+                    child: Text(
+                      'Forgot Password?',
+                      style: TextStyle(color: Colors.blue[600]),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -78,11 +100,20 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 10),
             // sign in btn
             // MyButton(onTap: signUserIn),
-            ElevatedButton(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              child: ElevatedButton(
                 onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                         content: Text('Logged in successfully...!'))),
-                child: const Text('Login')),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  fixedSize: const Size(double.maxFinite, 48),
+                ),
+                child: const Text('Login'),
+              ),
+            ),
 
             const SizedBox(height: 10),
             //or continue with
