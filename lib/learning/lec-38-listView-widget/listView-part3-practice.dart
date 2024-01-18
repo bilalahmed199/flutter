@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyStatelessWidget());
+  runApp(ListViewWithDynamicDate());
 }
 
-class MyStatelessWidget extends StatelessWidget {
-  MyStatelessWidget({super.key});
+class ListViewWithDynamicDate extends StatelessWidget {
+  ListViewWithDynamicDate({super.key});
 
   final List<String> weekDays = [
     'Mon',
@@ -50,12 +50,12 @@ class MyStatelessWidget extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Card(
+                  color: colorsList[index],
                   child: ListTile(
                     title: Text(weekDays[index]),
                     subtitle: Text(papersSchedule[index]),
                     leading: const Icon(Icons.person),
                     trailing: const Icon(Icons.message),
-                    hoverColor: colorsList[index],
                   ),
                 ),
               );

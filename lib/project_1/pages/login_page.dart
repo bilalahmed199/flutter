@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/project_1/components/my_button.dart';
 import 'package:test_app/project_1/components/my_textfield.dart';
 import 'package:test_app/project_1/components/square_tile.dart';
+import 'package:test_app/project_1/pages/listView_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,7 +17,6 @@ class _LoginPageState extends State<LoginPage> {
   final passwordController = TextEditingController();
 
   // sing user in method
-  void signUserIn() {}
   bool _isObsecured = true;
 
   void onObsecure() {
@@ -99,19 +98,32 @@ class _LoginPageState extends State<LoginPage> {
 
             const SizedBox(height: 10),
             // sign in btn
-            // MyButton(onTap: signUserIn),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25),
               child: ElevatedButton(
-                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text('Logged in successfully...!'))),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
                   fixedSize: const Size(double.maxFinite, 48),
                 ),
                 child: const Text('Login'),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ListViewScreen();
+                      },
+                    ),
+                  );
+
+                  // Move the SnackBar inside the onPressed callback
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Logged in successfully...!'),
+                    ),
+                  );
+                },
               ),
             ),
 
@@ -153,12 +165,11 @@ class _LoginPageState extends State<LoginPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SquareTile(
-                      imagePath: 'lib/login_project_1/images/google1.png'),
+                  SquareTile(imagePath: 'lib/project_1/images/google1.png'),
                   SizedBox(
                     width: 25,
                   ),
-                  SquareTile(imagePath: 'lib/login_project_1/images/apple.png'),
+                  SquareTile(imagePath: 'lib/project_1/images/apple.png'),
                 ],
               ),
             ),
