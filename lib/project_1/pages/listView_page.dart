@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ListViewScreen extends StatelessWidget {
-  ListViewScreen({Key? key}) : super(key: key);
+class listViewScreen extends StatelessWidget {
+  listViewScreen({super.key});
 
   final List<String> weekDays = [
     'Mon',
@@ -12,6 +12,7 @@ class ListViewScreen extends StatelessWidget {
     'Sat',
     'Sun'
   ];
+
   final List<String> papersSchedule = [
     'English',
     'Chemistry',
@@ -20,6 +21,16 @@ class ListViewScreen extends StatelessWidget {
     'Science',
     'Urdu',
     'Islamiyat'
+  ];
+
+  final List<String> paperTime = [
+    '08:30 AM',
+    '10:00 AM',
+    '01:00 PM',
+    '02:00 PM',
+    '08:30 AM',
+    '09:00 AM',
+    '11:30 PM'
   ];
 
   final List<MaterialColor> colorsList = [
@@ -39,43 +50,45 @@ class ListViewScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Center(child: Text('List Card View with dynamic data')),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height -
-                    140, // Adjust the height as needed
-                child: ListView.builder(
-                  itemCount: weekDays.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Card(
-                        color: colorsList[index],
-                        child: ListTile(
-                          title: Text(weekDays[index]),
-                          subtitle: Text(papersSchedule[index]),
-                          leading: const Icon(Icons.person),
-                          trailing: const Icon(Icons.message),
+        body: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: weekDays.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      color: colorsList[index],
+                      child: ListTile(
+                        title: Text(weekDays[index]),
+                        subtitle: Row(
+                          children: [
+                            Text(papersSchedule[index]),
+                            const Spacer(), // to add space between weekdays and time
+                            Text(paperTime[index]),
+                          ],
                         ),
+                        leading: const Icon(Icons.person),
+                        trailing: const Icon(Icons.lock_clock),
                       ),
-                    );
-                  },
-                ),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  fixedSize: const Size(double.maxFinite, 48),
-                ),
-                child: const Text('Back to Home'),
-                onPressed: () {
-                  Navigator.pop(context);
+                    ),
+                  );
                 },
               ),
-            ],
-          ),
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                fixedSize: const Size(280.0, 48.0),
+              ),
+              child: const Text('Back to Home'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
         ),
       ),
     );
