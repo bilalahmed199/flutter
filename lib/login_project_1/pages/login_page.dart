@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   TextButton(
                     onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Comming soon...!'))),
+                        const SnackBar(content: Text('Coming soon...!'))),
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(color: Colors.blue[600]),
@@ -173,11 +173,17 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(color: Colors.grey[700]),
                 ),
                 const SizedBox(width: 4),
-                const Text(
-                  'Register now',
-                  style: TextStyle(
-                      color: Colors.blue, fontWeight: FontWeight.bold),
-                )
+                TextButton(
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Coming soon..'),
+                          ),
+                        ),
+                    child: const Text(
+                      'Register now',
+                      style: TextStyle(
+                          color: Colors.blue, fontWeight: FontWeight.bold),
+                    ))
               ],
             )
           ]),

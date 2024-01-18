@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/navigation-widget/3rd_screen.dart';
+import 'package:test_app/learning/navigation-widget/3rd_screen.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});
@@ -17,7 +17,6 @@ class SecondScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Go to 3rd screen or Home"),
-                
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: ElevatedButton(

@@ -1,6 +1,6 @@
 // move from 1 screen to another
 import 'package:flutter/material.dart';
-import 'package:test_app/navigation-widget/2nd_screen.dart';
+import 'package:test_app/learning/navigation-widget/2nd_screen.dart';
 
 void main() {
   runApp(
