@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/learning/navigation-widget/3rd_screen.dart';
+import 'package:test_app/learning/lec-32-navigation-widget/3rd_screen.dart';
 
 class SecondScreen extends StatelessWidget {
   const SecondScreen({super.key});

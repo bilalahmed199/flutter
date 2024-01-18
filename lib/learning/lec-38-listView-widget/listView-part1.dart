@@ -1,5 +1,4 @@
 // Lecture#36: ListView & ListView.builder
-
 import 'package:flutter/material.dart';
 
 void main() {
