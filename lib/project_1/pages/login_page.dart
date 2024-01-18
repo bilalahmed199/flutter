@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/login_project_1/components/my_button.dart';
-import 'package:test_app/login_project_1/components/my_textfield.dart';
-import 'package:test_app/login_project_1/components/square_tile.dart';
+import 'package:test_app/project_1/components/my_button.dart';
+import 'package:test_app/project_1/components/my_textfield.dart';
+import 'package:test_app/project_1/components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
