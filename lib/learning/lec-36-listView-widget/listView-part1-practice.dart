@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_app/learning/lec-38-listView-widget/listView-part1.dart';
 
 void main() {
   runApp(const MyStatelessWidget());
