@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/project_1/components/my_textfield.dart';
 import 'package:test_app/project_1/components/square_tile.dart';
+import 'package:test_app/project_1/pages/home_screen.dart';
 import 'package:test_app/project_1/pages/listView_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -112,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return listViewScreen();
+                        return const HomePage();
                       },
                     ),
                   );
